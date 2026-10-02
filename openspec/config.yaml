@@ -1,0 +1,31 @@
+schema: spec-driven
+
+# Project context
+context: |
+  Technology Stack: Nuxt 4, Vue 3 (Composition API), TypeScript, Prisma ORM (SQLite and MySQL compatible), Tailwind CSS v4, Vuetify 3.
+  Architecture: Full-stack application with Nuxt server routes and nuxt-auth-utils session authentication.
+  Database Performance: Strictly prevent Prisma N+1 queries. Never query relations inside loops; always use Prisma include/select or batched queries.
+  Code Discipline: YAGNI principle. Prefer minimal diffs, reuse existing utilities and patterns, avoid unnecessary dependencies/abstractions. Fix root causes rather than symptoms. Always validate at trust boundaries.
+
+# Per-artifact rules
+rules:
+  proposal:
+    - Clearly state the problem, solution, and rationale
+    - Explicitly define what is in scope and out of scope
+  tasks:
+    - Break tasks into clear, testable chunks
+    - Include verification steps (e.g. schema checks, build or dev tests) for each major change
+  design:
+    - Detail data models, API endpoints, and component architecture where applicable
+    - Document security, error handling, and performance considerations (e.g. N+1 prevention)
+
+# Per-operation guidance
+operations:
+  apply:
+    guidance:
+      - Run Prisma validation (`npm run db:validate`) and test scripts when changing database models or queries
+      - Keep diffs focused and minimal
+  archive:
+    guidance:
+      - Verify all tasks are completed before archiving
+      - Ensure main specs accurately reflect final implementation

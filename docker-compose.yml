@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - SQL_PROVIDER=sqlite
+      - DATABASE_URL=file:./dev.db
+      - NUXT_SESSION_PASSWORD=production-session-secret-key-must-be-min-32-chars!
+    restart: unless-stopped

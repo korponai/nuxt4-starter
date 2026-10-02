@@ -1,0 +1,10 @@
+.output
+.nuxt
+node_modules
+*.local
+.env
+prisma/dev.db
+prisma/dev.db-journal
+.cache
+dist
+.DS_Store
